@@ -5,11 +5,11 @@ import type { Service } from "@/lib/types";
 
 export function ServiceCard({ service: { image, label } }: { service: Service }) {
   return (
-    <Link href="#contact" title={label} className="w-full max-w-[320px] sm:w-[220px]">
+    <Link href="#contact" title={label} className="w-full max-w-[520px] sm:w-[420px]">
       <Image
         src={image}
         alt={label}
-        width={320}
+        width={420}
         height={220}
         className="h-auto w-auto rounded-t-sm"
       />

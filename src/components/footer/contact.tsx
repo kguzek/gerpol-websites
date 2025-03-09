@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-export const EMAIL_ADDRESS = "info@machulec.de";
+export const EMAIL_ADDRESS = "machulec.gerpol@gmail.com";
 
 export function Contact({ compact = false }: { compact?: boolean }) {
   return (
@@ -24,7 +24,7 @@ export function Contact({ compact = false }: { compact?: boolean }) {
           0152 596 72 775
         </Link>
       </div>
-      <div
+      {/* <div
         className={cn("items-center gap-1", {
           "hidden sm:flex": compact,
           flex: !compact,
@@ -37,7 +37,7 @@ export function Contact({ compact = false }: { compact?: boolean }) {
         >
           030 54 82 67 07
         </Link>
-      </div>
+      </div> */}
       <div
         className={cn("items-center gap-1", {
           "hidden sm:flex": compact,
