@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 
+import { EMAIL_ADDRESS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 import { ContactPhone } from "./contact-phone";
-
-export const EMAIL_ADDRESS = "machulec.gerpol@gmail.com";
 
 export function Contact({
   compact = false,

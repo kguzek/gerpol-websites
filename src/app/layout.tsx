@@ -8,6 +8,10 @@ import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
+import Script from "next/script";
+
+import { Toaster } from "@/components/ui/sonner";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -84,8 +88,14 @@ export default function RootLayout({
         )}
       >
         <Banner />
+        <Toaster />
         <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
         <Footer />
+        <Script
+          data-collect-dnt="true"
+          async
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+        ></Script>
       </body>
     </html>
   );
