@@ -45,6 +45,18 @@ const SERVICES: Service[] = [
     label: "Armaturen anschließen und tauschen",
     image: "https://cdn1.site-media.eu/images/975/2343492/installation-of-drain.jpg",
   },
+  {
+    label: "Waschbeckenmontage",
+    image: "/images/waschbeckenmontage.jpg",
+  },
+  {
+    label: "WC-Montage",
+    image: "/images/wcmontage.jpg",
+  },
+  {
+    label: "Badewannen- und Duschmontage",
+    image: "/images/duschmontage.jpg",
+  },
   // {
   //   label: "Bodenfliesen verlegen",
   //   image:
