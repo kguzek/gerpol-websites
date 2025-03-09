@@ -1,12 +1,27 @@
 "use server";
 
 import { validateTurnstileToken } from "next-turnstile";
-import { Resend } from "resend";
 
+// import { Resend } from "resend";
 import type { ContactFormSchema } from "./lib/schemas";
 import { EMAIL_RECIPIENT, TURNSTILE_SECRET_KEY } from "./lib/constants";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
+
+const resend = {
+  emails: {
+    send: (values: {
+      from: string;
+      to: string[];
+      subject: string;
+      text: string;
+      replyTo: string;
+    }) => {
+      console.log("Sending email", values);
+      return { data: null, error: new Error("not implemented") };
+    },
+  },
+};
 
 export async function sendContactEmail({
   name,
@@ -19,8 +34,6 @@ export async function sendContactEmail({
   if (!TURNSTILE_SECRET_KEY) {
     throw new Error("TURNSTILE_SECRET_KEY is not set");
   }
-  // await new Promise((resolve) => setTimeout(resolve, 2000));
-  // return { data: null, error: null };
   const verifyResult = await validateTurnstileToken({
     token,
     secretKey: TURNSTILE_SECRET_KEY,

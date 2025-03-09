@@ -34,6 +34,7 @@ export function ContactForm() {
       phone: "",
       email: "",
       message: "",
+      token: "",
     },
   });
 
