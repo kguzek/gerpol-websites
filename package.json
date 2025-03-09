@@ -2,6 +2,9 @@
   "name": "machulec-website",
   "version": "0.1.0",
   "private": true,
+  "author": "Konrad Guzek",
+  "license": "MIT",
+  "homepage": "https://das-profiteam-berlin.de",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

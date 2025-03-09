@@ -4,10 +4,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --breakpoint-md: 940px;
-  --breakpoint-sm: 640px;
+@config '../../tailwind.config.ts';
 
+@theme inline {
+  /* --color-secondary: #ff0080; */
+  --color-secondary: #ffffff;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -35,7 +36,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
+  --color-tertiary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
@@ -119,11 +120,28 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+@theme {
+  --animate-pulse-accent: pulse-accent 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes pulse-accent {
+    0%,
+    100% {
+      transform: none;
+      transform-origin: left;
+    }
+    50% {
+      /* color: var(--color-accent); */
+      color: var(--color-accent);
+      transform: scale(105%);
+    }
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-secondary text-primary min-h-screen;
   }
 }

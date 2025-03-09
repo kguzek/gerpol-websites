@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-
-import "./globals.css";
 
 import { Footer } from "@/components/footer";
 import { Banner } from "@/components/navigation/banner";
 import { cn } from "@/lib/utils";
+
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,13 +18,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const PRODUCTION_URL = "https://das-profiteam-berlin.de";
+
 export const metadata: Metadata = {
   title:
     "Machulec - IKEA Möbelmontage, Küchenbau, Fliesenarbeiten & mehr | Das Profiteam",
   description:
-    "Wenn Sie einen guten Fachmann für Fliesen , Bad Komplettsanierung, Renovierung oder Küchenplanung in Berlin suchen, dann sind Sie bei uns genau richtig.",
+    "Wenn Sie einen guten Fachmann für Fliesen, Bad Komplettsanierung, Renovierung oder Küchenplanung in Berlin suchen, dann sind Sie bei uns genau richtig.",
+  metadataBase: new URL(PRODUCTION_URL),
   openGraph: {
-    url: "https://das-profiteam-berlin.de",
+    url: "/",
     images: {
       url: "/og-image.png",
       width: 1200,
@@ -39,9 +42,13 @@ export const metadata: Metadata = {
     title:
       "Machulec - IKEA Möbelmontage, Küchenbau, Fliesenarbeiten & mehr | Das Profiteam",
     description:
-      "Wenn Sie einen guten Fachmann für Fliesen , Bad Komplettsanierung, Renovierung oder Küchenplanung in Berlin suchen, dann sind Sie bei uns genau richtig.",
+      "Wenn Sie einen guten Fachmann für Fliesen, Bad Komplettsanierung, Renovierung oder Küchenplanung in Berlin suchen, dann sind Sie bei uns genau richtig.",
     siteName: "Machulec – Das Profiteam",
   },
+  alternates: {
+    canonical: "/",
+  },
+  robots: "index, follow",
   creator: "Konrad Guzek",
   authors: {
     name: "Konrad Guzek",
@@ -58,6 +65,10 @@ export const metadata: Metadata = {
   ],
 };
 
+export const viewport: Viewport = {
+  themeColor: "#1b98e8",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,13 +77,15 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body
-        className={cn("font-light antialiased", geistSans.variable, geistMono.variable)}
+        className={cn(
+          "flex flex-col font-light antialiased",
+          geistSans.variable,
+          geistMono.variable,
+        )}
       >
         <Banner />
-        <div className="px-4 sm:px-10 md:px-28">
-          {children}
-          <Footer />
-        </div>
+        <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
+        <Footer />
       </body>
     </html>
   );

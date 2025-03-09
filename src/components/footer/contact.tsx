@@ -1,11 +1,19 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+import { ContactPhone } from "./contact-phone";
+
 export const EMAIL_ADDRESS = "machulec.gerpol@gmail.com";
 
-export function Contact({ compact = false }: { compact?: boolean }) {
+export function Contact({
+  compact = false,
+  animate = false,
+}: {
+  compact?: boolean;
+  animate?: boolean;
+}) {
   return (
     <>
       <div className="flex items-center gap-1">
@@ -15,15 +23,7 @@ export function Contact({ compact = false }: { compact?: boolean }) {
           <span>12347 Berlin</span>
         </div>
       </div>
-      <div className="flex items-center gap-1">
-        <Phone className="text-accent" />
-        <Link
-          href="tel:+4915259672775"
-          className="hover:text-accent transition-colors duration-300"
-        >
-          0152 596 72 775
-        </Link>
-      </div>
+      <ContactPhone animate={animate} />
       {/* <div
         className={cn("items-center gap-1", {
           "hidden sm:flex": compact,
