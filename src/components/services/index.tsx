@@ -1,3 +1,13 @@
+import imageBathroomTiling from "@public/images/bathroom_tiling.jpg";
+import imageDuschmontage from "@public/images/duschkabinenmontage.png";
+import imageFaucetInstallation from "@public/images/faucet_installation.jpg";
+import imageIkeaFurnitureAssembly from "@public/images/ikea_furniture_assembly.jpg";
+import imageIkeaKitchenConstruction from "@public/images/ikea_kitchen_construction.jpg";
+import imageIkeaKitchenPlanning from "@public/images/ikea_kitchen_planning.jpg";
+import imageWaschbeckenmontage from "@public/images/waschbeckenmontage.jpg";
+import imageWcmontage from "@public/images/wcmontage.jpg";
+import imageWindowInstallation from "@public/images/window_installation.jpg";
+
 import type { Service } from "@/lib/types";
 import { ServiceCard } from "@/components/services/service-card";
 
@@ -16,46 +26,39 @@ const SERVICES: Service[] = [
 
   {
     label: "Auf- & Abbau von IKEA Küchen & Arbeitsplatten",
-    image:
-      "https://cdn1.site-media.eu/images/975/2343501/interior-design-construction-of-a-kitchen-with-cooker-extractor.jpg",
+    image: imageIkeaKitchenConstruction,
   },
-
   {
     label: "IKEA Möbelaufbau und Möbelabbau (Fertigteilmöbel)",
-    image:
-      "https://cdn1.site-media.eu/images/975/2342580/the-young-man-tries-himself-to-fold-his-coffee-table-and-stools.jpg",
+    image: imageIkeaFurnitureAssembly,
   },
   {
     label: "IKEA Küchenplanung",
-    image: "https://cdn1.site-media.eu/images/975/2343450/kchenplanung.jpg",
+    image: imageIkeaKitchenPlanning,
   },
-  // ikea
-
   {
     label: "Badfliesen, Fliesenspiegel und Wände fliesen",
-    image:
-      "https://cdn1.site-media.eu/images/976/2343456/man-installing-ceramic-tile.jpg",
+    image: imageBathroomTiling,
   },
   {
     label: "Fenster und Türen einbauen und austauschen",
-    image:
-      "https://cdn1.site-media.eu/images/975%2C1194x798%2B0%2B289/2343453/carpenter-mounting-a-new-window.jpg",
+    image: imageWindowInstallation,
   },
   {
     label: "Armaturen anschließen und tauschen",
-    image: "https://cdn1.site-media.eu/images/975/2343492/installation-of-drain.jpg",
+    image: imageFaucetInstallation,
   },
   {
     label: "Waschbeckenmontage",
-    image: "/images/waschbeckenmontage.jpg",
+    image: imageWaschbeckenmontage,
   },
   {
     label: "WC-Montage",
-    image: "/images/wcmontage.jpg",
+    image: imageWcmontage,
   },
   {
-    label: "Badewannen- und Duschmontage",
-    image: "/images/duschmontage.jpg",
+    label: "Badewannen- und Duschkabinenmontage",
+    image: imageDuschmontage,
   },
   // {
   //   label: "Bodenfliesen verlegen",
