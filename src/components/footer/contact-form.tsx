@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 import type { ContactFormSchema } from "@/lib/schemas";
 import { sendContactEmail } from "@/actions";
-import { TURNSTILE_SITE_KEY } from "@/lib/constants";
+import { TURNSTILE_SANDBOX_MODE_ENABLED, TURNSTILE_SITE_KEY } from "@/lib/constants";
 import { contactFormSchema } from "@/lib/schemas";
 
 import { Button } from "../ui/button";
@@ -140,6 +140,7 @@ export function ContactForm() {
                   language="de"
                   onExpire={() => form.setValue("token", "")}
                   onError={(error) => toast.error(`Cloudflare Fehler: ${error}`)}
+                  sandbox={TURNSTILE_SANDBOX_MODE_ENABLED}
                 />
               </FormControl>
               <FormMessage />
