@@ -18,7 +18,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.479.0",
-    "next": "15.2.2",
+    "next": "15.2.3",
     "next-turnstile": "^1.0.2",
     "nodemailer": "^6.10.0",
     "postcss": "^8.5.3",
@@ -47,7 +47,7 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@10.6.1",
+  "packageManager": "pnpm@10.6.5",
   "pnpm": {
     "onlyBuiltDependencies": [
       "sharp"
