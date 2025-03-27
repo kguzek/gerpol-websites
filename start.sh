@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! docker build -t gerpol-websites .; then
+if ! docker build -t gerpol-websites . 2>&1; then
   echo "Failed to build image."
   exit 1
 fi
