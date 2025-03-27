@@ -23,7 +23,7 @@ import {
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
-export function ContactForm() {
+export function ContactForm({ fromEmail }: { fromEmail: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm({
@@ -41,7 +41,7 @@ export function ContactForm() {
   async function onSubmit(values: ContactFormSchema) {
     setIsSubmitting(true);
     try {
-      await sendContactEmail(values);
+      await sendContactEmail(values, fromEmail);
     } catch (error) {
       console.error("Error submitting form:", error);
       throw error;

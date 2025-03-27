@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { Footer } from "@/components/footer";
 import { Banner } from "@/components/navigation/banner";
 import { DAS_PROFITEAM } from "@/lib/constants";
 
@@ -42,6 +43,7 @@ export default function DasProfiteamLayout({ children }: { children: ReactNode }
     <>
       <Banner title="Das Profiteam" />
       <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
+      <Footer contactFromEmail={`Das Profiteam <noreply@${DAS_PROFITEAM}>`} />
     </>
   );
 }

@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
 
 export async function sendContactEmail(
   { name, email, message, company, phone, token }: ContactFormSchema,
-  from: string = "Das Profiteam <noreply@das-profiteam-berlin.de>",
+  from: string,
 ) {
   if (!TURNSTILE_SANDBOX_MODE_ENABLED) {
     if (!TURNSTILE_SECRET_KEY) {

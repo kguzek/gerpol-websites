@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 
-import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 
@@ -58,7 +57,6 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
-        <Footer />
         <Script
           data-collect-dnt="true"
           async

@@ -5,7 +5,7 @@ import { Heading } from "../heading";
 import { Contact } from "./contact";
 import { ContactForm } from "./contact-form";
 
-export function Footer() {
+export function Footer({ contactFromEmail }: { contactFromEmail: string }) {
   return (
     <div className="mt-12 px-4 sm:px-10 md:px-28">
       <Heading>Kontakt aufnehmen</Heading>
@@ -16,7 +16,7 @@ export function Footer() {
           </div>
           <Contact />
         </address>
-        <ContactForm />
+        <ContactForm fromEmail={contactFromEmail} />
       </div>
       <hr className="border-accent absolute left-0 w-full" />
       <footer className="mb-2 pt-2 text-center">

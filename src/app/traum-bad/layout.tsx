@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { Footer } from "@/components/footer";
 import { Banner } from "@/components/navigation/banner";
 import { TRAUM_BAD } from "@/lib/constants";
 
@@ -44,6 +45,7 @@ export default function TraumBadLayout({ children }: { children: ReactNode }) {
     <>
       <Banner title="Traum Bad" />
       <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
+      <Footer contactFromEmail={`Traum Bad <noreply@${TRAUM_BAD}>`} />
     </>
   );
 }
