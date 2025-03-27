@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { Banner } from "@/components/navigation/banner";
+import { TRAUM_BAD } from "@/lib/constants";
 
-const PRODUCTION_URL = "https://traum-bad-berlin.de";
+const PRODUCTION_URL = `https://${TRAUM_BAD}`;
 
 export const metadata: Metadata = {
   title:

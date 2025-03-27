@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { Banner } from "@/components/navigation/banner";
+import { DAS_PROFITEAM } from "@/lib/constants";
 
-const PRODUCTION_URL = "https://das-profiteam-berlin.de";
+const PRODUCTION_URL = `https://${DAS_PROFITEAM}`;
 
 export const metadata: Metadata = {
   title:
