@@ -15,31 +15,29 @@ export function isTraumBad(hostname: string) {
 }
 
 export default function middleware(request: NextRequest) {
-  function redirect(
-    path: string,
-    type: "redirect" | "rewrite" = "redirect",
-    base: string | URL = request.nextUrl,
-  ) {
-    const to = new URL(path, base);
+  const host = request.headers.get("host") || "localhost:3000";
+
+  function redirect(path: string, type: "redirect" | "rewrite" = "redirect") {
+    const to = new URL(path, `https://${host.replace("www.", "")}`);
     console.info(`[MIDDLEWARE] ${type} ${request.nextUrl.href} -> ${to}`);
     return NextResponse[type](to);
   }
 
-  if (
-    request.nextUrl.protocol !== "https:" &&
-    [DAS_PROFITEAM, TRAUM_BAD].includes(request.nextUrl.hostname)
-  ) {
-    return redirect(
-      request.nextUrl.pathname,
-      "redirect",
-      request.nextUrl.href.replace("http:", "https:"),
-    );
+  // if (
+  //   request.nextUrl.protocol !== "https:" &&
+  //   [DAS_PROFITEAM, TRAUM_BAD].includes(host)
+  // ) {
+  //   return redirect(
+  //     request.nextUrl.pathname,
+  //     "redirect",
+  //     request.nextUrl.href.replace("http:", "https:"),
+  //   );
+  // }
+  if (host.startsWith("www.")) {
+    return redirect(request.nextUrl.pathname);
   }
-  if (request.nextUrl.hostname.startsWith("www.")) {
-    return redirect(request.nextUrl.href.replace("www.", ""));
-  }
-  const path = isTraumBad(request.nextUrl.hostname) ? "/traum-bad" : "/das-profiteam";
-  return redirect(`${path}${request.nextUrl.pathname}`, "rewrite");
+  const prefix = isTraumBad(request.nextUrl.hostname) ? "/traum-bad" : "/das-profiteam";
+  return redirect(`${prefix}${request.nextUrl.pathname}`, "rewrite");
 }
 
 export const config = {
