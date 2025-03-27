@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {};
+import { DAS_PROFITEAM, TRAUM_BAD } from "@/lib/constants";
+
+const nextConfig: NextConfig = {
+  allowedDevOrigins: [DAS_PROFITEAM, TRAUM_BAD],
+};
 
 export default nextConfig;
