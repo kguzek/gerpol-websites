@@ -16,6 +16,8 @@ COPY . /app
 RUN pnpm run build
 
 FROM node:22-slim
-COPY --from=build /app/.next /app/.next
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/public ./public
+COPY --from=build /app/.next/static ./.next/static
 EXPOSE 3000
-CMD [ "node", ".next/standalone/server.js" ]
+CMD [ "node", "server.js" ]
