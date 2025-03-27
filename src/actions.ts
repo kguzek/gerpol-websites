@@ -24,14 +24,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export async function sendContactEmail({
-  name,
-  email,
-  message,
-  company,
-  phone,
-  token,
-}: ContactFormSchema) {
+export async function sendContactEmail(
+  { name, email, message, company, phone, token }: ContactFormSchema,
+  from: string = "Das Profiteam <noreply@das-profiteam-berlin.de>",
+) {
   if (!TURNSTILE_SANDBOX_MODE_ENABLED) {
     if (!TURNSTILE_SECRET_KEY) {
       throw new Error("TURNSTILE_SECRET_KEY is not set");
@@ -49,7 +45,7 @@ export async function sendContactEmail({
   }
 
   const emailResult = await transporter.sendMail({
-    from: "Das Profiteam <noreply@das-profiteam-berlin.de>",
+    from,
     to: [EMAIL_RECIPIENT],
     subject: `Neue Kontaktanfrage von ${name}${company ? ` (${company})` : ""}`,
     text: `${message}\n\n-----------\nKundenname: ${name}\nKundenfirma: ${company || "<keine>"}\nKontakt-E-Mail: ${email}\nKontakttelefon: ${phone}`,

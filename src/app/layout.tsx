@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 
 import { Footer } from "@/components/footer";
-import { Banner } from "@/components/navigation/banner";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 
@@ -20,32 +19,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const PRODUCTION_URL = "https://das-profiteam-berlin.de";
-
 export const metadata: Metadata = {
-  title:
-    "Machulec - IKEA Möbelmontage, Küchenbau, Fliesenarbeiten & mehr | Das Profiteam",
-  description:
-    "Wenn Sie einen guten Fachmann für Fliesen, Bad Komplettsanierung, Renovierung oder Küchenplanung in Berlin suchen, dann sind Sie bei uns genau richtig.",
-  metadataBase: new URL(PRODUCTION_URL),
   openGraph: {
     url: "/",
-    images: {
-      url: "/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "IKEA Möbelmontage, Küchenbau, Fliesenarbeiten & mehr",
-      type: "image/png",
-    },
     type: "website",
     locale: "de_DE",
     phoneNumbers: ["0152 596 72 775"],
     emails: ["machulec.gerpol@gmail.com"],
-    title:
-      "Machulec - IKEA Möbelmontage, Küchenbau, Fliesenarbeiten & mehr | Das Profiteam",
-    description:
-      "Wenn Sie einen guten Fachmann für Fliesen, Bad Komplettsanierung, Renovierung oder Küchenplanung in Berlin suchen, dann sind Sie bei uns genau richtig.",
-    siteName: "Machulec – Das Profiteam",
   },
   alternates: {
     canonical: "/",
@@ -56,15 +36,6 @@ export const metadata: Metadata = {
     name: "Konrad Guzek",
     url: "https://www.guzek.uk",
   },
-  keywords: [
-    "IKEA Möbelmontage",
-    "Küchenbau",
-    "Fliesenarbeiten",
-    "Bad Komplettsanierung",
-    "Renovierung",
-    "Küchenplanung",
-    "Berlin",
-  ],
 };
 
 export const viewport: Viewport = {
@@ -85,9 +56,8 @@ export default function RootLayout({
           geistMono.variable,
         )}
       >
-        <Banner />
+        {children}
         <Toaster />
-        <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
         <Footer />
         <Script
           data-collect-dnt="true"
