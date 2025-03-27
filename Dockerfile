@@ -15,9 +15,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 COPY . /app
 RUN pnpm run build
 
-FROM base
-COPY --from=prod-deps /app/node_modules /app/node_modules
+FROM node:22-slim
 COPY --from=build /app/.next /app/.next
-COPY next.config.ts tsconfig.json /app/
 EXPOSE 3000
-CMD [ "pnpm", "start" ]
+CMD [ "node", ".next/standalone/server.js" ]
