@@ -50,7 +50,7 @@ const COMPARISONS = [
 
 function ImageCard({ image, alt }: { image: StaticImageData; alt: string }) {
   return (
-    <Image src={image} alt={alt} width={400} height={300} className="w-full rounded-md" />
+    <Image src={image} alt={alt} width={undefined} height={300} className="rounded-md" />
   );
 }
 
@@ -66,7 +66,7 @@ function ComparisonSide({
       <h3 className="text-accent mb-2 text-center text-xl uppercase">
         {before ? "Vorher" : "Nachher"}
       </h3>
-      <div className="flex max-w-full justify-center gap-2">
+      <div className="grid grid-cols-[repeat(auto-fit,_minmax(0,_1fr))] place-items-center gap-2">
         {images.map((image, index) => (
           <ImageCard
             key={`comparison-${before ? "before" : "after"}-${index}`}
@@ -124,14 +124,18 @@ export default function TraumBad() {
         </div>
       </div>
       <Heading>Weitere Nachher-Eindrücke</Heading>
-      <div className="mx-auto mt-10 flex max-w-3xl justify-center gap-4">
-        {[imageUncompared01, imageUncompared02, imageUncompared03].map((image, index) => (
-          <ImageCard
-            key={`uncompared-${index}`}
-            image={image}
-            alt={`Unvergleichbares Foto ${index + 1}`}
-          />
-        ))}
+      <div className="mt-10 flex w-full justify-center">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {[imageUncompared01, imageUncompared02, imageUncompared03].map(
+            (image, index) => (
+              <ImageCard
+                key={`uncompared-${index}`}
+                image={image}
+                alt={`Unvergleichbares Foto ${index + 1}`}
+              />
+            ),
+          )}
+        </div>
       </div>
     </div>
   );
