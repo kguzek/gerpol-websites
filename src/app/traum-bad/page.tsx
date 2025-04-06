@@ -1,5 +1,4 @@
 import type { StaticImageData } from "next/image";
-import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 import imageBathroom from "@public/images/traum-bad/bathroom.jpg";
@@ -34,6 +33,7 @@ import imageUncompared01 from "@public/images/traum-bad/uncompared/after-01.jpeg
 import imageUncompared02 from "@public/images/traum-bad/uncompared/after-02.jpeg";
 import imageUncompared03 from "@public/images/traum-bad/uncompared/after-03.jpeg";
 
+import { ClickableImage } from "@/components/clickable-image";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 
@@ -47,12 +47,6 @@ const COMPARISONS = [
   { before: [imageBefore07a], after: [imageAfter07a] },
   { before: [imageBefore08a, imageBefore08b], after: [imageAfter08a] },
 ];
-
-function ImageCard({ image, alt }: { image: StaticImageData; alt: string }) {
-  return (
-    <Image src={image} alt={alt} width={undefined} height={300} className="rounded-md" />
-  );
-}
 
 function ComparisonSide({
   images,
@@ -68,9 +62,9 @@ function ComparisonSide({
       </h3>
       <div className="grid grid-cols-[repeat(auto-fit,_minmax(0,_1fr))] place-items-center gap-2">
         {images.map((image, index) => (
-          <ImageCard
+          <ClickableImage
             key={`comparison-${before ? "before" : "after"}-${index}`}
-            image={image}
+            src={image}
             alt={`${before ? "Vorher" : "Nachher"} Foto ${index + 1}`}
           />
         ))}
@@ -83,19 +77,13 @@ export default function TraumBad() {
   return (
     <div>
       <div className="my-10 flex flex-col items-center justify-center gap-8 md:flex-row md:items-start">
-        <Image
-          src={imageBathroom}
-          alt="Shower cabin"
-          width={320}
-          height={400}
-          className="h-full"
-        />
+        <ClickableImage src={imageBathroom} alt="Duschkabine" width={320} height={400} />
         <div className="relative max-w-lg">
           <Heading>Seniorengerechte Badezimmer</Heading>
           <h3 className="mb-1 pt-2 font-semibold">
             Umbau von Badewanne zu Dusche und Duschen zu Dusche
           </h3>
-          <p className="space-y-2">
+          <p className="space-y-2 text-sm sm:text-base">
             Barrierefreiheit verdient bei der Renovierung oder Neugestaltung eines
             Badezimmers Beachtung. Neben der Erleichterung des Alltags für Menschen mit
             Behinderung hat das drei Gründe. Erstens erhöht eine barrierefreie
@@ -128,10 +116,10 @@ export default function TraumBad() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           {[imageUncompared01, imageUncompared02, imageUncompared03].map(
             (image, index) => (
-              <ImageCard
+              <ClickableImage
                 key={`uncompared-${index}`}
-                image={image}
-                alt={`Unvergleichbares Foto ${index + 1}`}
+                src={image}
+                alt={`Nachher-Eindrücke Foto ${index + 1}`}
               />
             ),
           )}
