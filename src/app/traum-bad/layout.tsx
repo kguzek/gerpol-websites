@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 
 import { Footer } from "@/components/footer";
 import { Banner } from "@/components/navigation/banner";
@@ -46,6 +47,11 @@ export default function TraumBadLayout({ children }: { children: ReactNode }) {
       <Banner title="Traum Bad" />
       <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
       <Footer contactFromEmail={`Traum Bad <noreply@${TRAUM_BAD}>`} />
+      <Script
+        defer
+        src="https://analytics.guzek.uk/script.js"
+        data-website-id="c8d22e90-35e4-4ffa-9c01-ee80aaa2954a"
+      ></Script>
     </>
   );
 }
