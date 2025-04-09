@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(PRODUCTION_URL),
   openGraph: {
     images: {
-      url: "/og-image-traumbad.png",
+      url: "/images/traum-bad/og-image.png",
       width: 1200,
       height: 630,
       alt: "Modernes Badezimmer mit hochwertiger Sanitärausstattung",

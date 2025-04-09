@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(PRODUCTION_URL),
   openGraph: {
     images: {
-      url: "/og-image-das-profiteam.png",
+      url: "/images/das-profiteam/og-image.png",
       width: 1200,
       height: 630,
       alt: "IKEA Möbelmontage, Küchenbau, Fliesenarbeiten & mehr",
