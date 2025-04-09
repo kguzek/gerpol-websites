@@ -44,7 +44,7 @@ export default function DasProfiteamLayout({ children }: { children: ReactNode }
     <>
       <Banner title="Das Profiteam" />
       <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
-      <Footer contactFromEmail={`Das Profiteam <noreply@${DAS_PROFITEAM}>`} />
+      <Footer contactFromEmail={`Das Profiteam <das-profiteam@${DAS_PROFITEAM}>`} />
       <Script
         defer
         src="https://analytics.guzek.uk/script.js"

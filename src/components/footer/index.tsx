@@ -7,7 +7,7 @@ import { ContactForm } from "./contact-form";
 
 export function Footer({ contactFromEmail }: { contactFromEmail: string }) {
   return (
-    <div className="mt-12 px-4 sm:px-10 md:px-28">
+    <div id="contact" className="mt-12 px-4 sm:px-10 md:px-28">
       <Heading>Kontakt aufnehmen</Heading>
       <div className="mt-6 mb-10 grid grid-cols-1 gap-4 md:grid-cols-2">
         <address className="grid grid-cols-1 justify-around gap-2 text-sm not-italic sm:grid-cols-2 md:flex md:flex-col">

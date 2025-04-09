@@ -4,7 +4,7 @@ import Script from "next/script";
 
 import { Footer } from "@/components/footer";
 import { Banner } from "@/components/navigation/banner";
-import { TRAUM_BAD } from "@/lib/constants";
+import { DAS_PROFITEAM, TRAUM_BAD } from "@/lib/constants";
 
 const PRODUCTION_URL = `https://${TRAUM_BAD}`;
 
@@ -46,7 +46,7 @@ export default function TraumBadLayout({ children }: { children: ReactNode }) {
     <>
       <Banner title="Traum Bad" />
       <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
-      <Footer contactFromEmail={`Traum Bad <noreply@${TRAUM_BAD}>`} />
+      <Footer contactFromEmail={`Traum Bad <traum-bad@${DAS_PROFITEAM}>`} />
       <Script
         defer
         src="https://analytics.guzek.uk/script.js"

@@ -47,7 +47,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="de">
+    <html lang="de" className="scroll-smooth">
       <body
         className={cn(
           "flex flex-col font-light antialiased",

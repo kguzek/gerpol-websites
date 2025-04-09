@@ -95,9 +95,7 @@ export default function TraumBad() {
             Staat gefördert, wenn noch keine akute Notwendigkeit dafür vorliegt.
           </p>
           <Button asChild className="mt-4" variant="outline">
-            <Link href="https://james.websitebutler.de/images/0/2335965/KfW-Foerderung_455_m_Links_Maerz_2017.pdf">
-              KfW Förderung
-            </Link>
+            <Link href="/KfW-Foerderung_455_m_Links_Maerz_2017.pdf">KfW Förderung</Link>
           </Button>
         </div>
       </div>
