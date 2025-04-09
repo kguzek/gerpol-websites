@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
-import imageBathroom from "@public/images/traum-bad/bathroom.jpg";
+import imageBathroom from "@public/images/traum-bad/bathroom_new.jpg";
 import imageAfter01a from "@public/images/traum-bad/comparisons/after-01a.jpeg";
 import imageAfter01b from "@public/images/traum-bad/comparisons/after-01b.jpeg";
 import imageAfter02a from "@public/images/traum-bad/comparisons/after-02a.jpeg";

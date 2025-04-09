@@ -1,11 +1,11 @@
 import imageBathroomTiling from "@public/images/das-profiteam/services/bathroom_tiling.jpg";
-import imageDuschmontage from "@public/images/das-profiteam/services/duschkabinenmontage.png";
 import imageFaucetInstallation from "@public/images/das-profiteam/services/faucet_installation.jpg";
 import imageIkeaFurnitureAssembly from "@public/images/das-profiteam/services/ikea_furniture_assembly.jpg";
 import imageIkeaKitchenConstruction from "@public/images/das-profiteam/services/ikea_kitchen_construction.jpg";
 import imageIkeaKitchenPlanning from "@public/images/das-profiteam/services/ikea_kitchen_planning.jpg";
-import imageWaschbeckenmontage from "@public/images/das-profiteam/services/waschbeckenmontage.jpg";
-import imageWcmontage from "@public/images/das-profiteam/services/wcmontage.jpg";
+import imageShowerCabinInstallation from "@public/images/das-profiteam/services/shower_cabin_installation.jpg";
+import imageSinkInstallation from "@public/images/das-profiteam/services/sink_installation.jpg";
+import imageToiletInstallation from "@public/images/das-profiteam/services/toilet_installation.jpg";
 import imageWindowInstallation from "@public/images/das-profiteam/services/window_installation.jpg";
 
 import type { Service } from "@/lib/types";
@@ -50,15 +50,15 @@ const SERVICES: Service[] = [
   },
   {
     label: "Waschbeckenmontage",
-    image: imageWaschbeckenmontage,
+    image: imageSinkInstallation,
   },
   {
     label: "WC-Montage",
-    image: imageWcmontage,
+    image: imageToiletInstallation,
   },
   {
     label: "Badewannen- und Duschkabinenmontage",
-    image: imageDuschmontage,
+    image: imageShowerCabinInstallation,
   },
   // {
   //   label: "Bodenfliesen verlegen",
