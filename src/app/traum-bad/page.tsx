@@ -77,7 +77,7 @@ export default function TraumBad() {
   return (
     <div>
       <div className="my-10 flex flex-col items-center justify-center gap-8 xl:flex-row xl:items-stretch">
-        <ClickableImage src={imageBathroom} alt="Duschkabine" />
+        <ClickableImage src={imageBathroom} alt="Duschkabine" height={400} />
         <div className="relative max-w-lg">
           <Heading>Seniorengerechte Badezimmer</Heading>
           <h3 className="mb-1 pt-2 font-semibold">

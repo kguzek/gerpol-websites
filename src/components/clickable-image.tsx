@@ -12,11 +12,11 @@ import {
 export function ClickableImage({
   src,
   alt,
-  width = undefined,
+  width,
   height = 300,
   className = "cursor-pointer rounded-md",
 }: {
-  src: StaticImageData | string;
+  src: StaticImageData;
   alt: string;
   width?: number;
   height?: number;
@@ -27,16 +27,10 @@ export function ClickableImage({
       <DialogTrigger>
         <Image src={src} alt={alt} width={width} height={height} className={className} />
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="md:max-w-fit">
         <DialogTitle>{alt}</DialogTitle>
         <DialogDescription className="grid place-items-center">
-          <Image
-            src={src}
-            alt={alt}
-            width={undefined}
-            height={undefined}
-            className="rounded-md"
-          />
+          <Image src={src} alt={alt} className="rounded-md" />
         </DialogDescription>
       </DialogContent>
     </Dialog>
