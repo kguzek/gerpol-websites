@@ -26,9 +26,6 @@ export const metadata: Metadata = {
     phoneNumbers: ["0152 596 72 775"],
     emails: ["machulec.gerpol@gmail.com"],
   },
-  alternates: {
-    canonical: "/",
-  },
   robots: "index, follow",
   creator: "Konrad Guzek",
   authors: {

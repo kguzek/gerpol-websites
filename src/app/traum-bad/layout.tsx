@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description:
     "Von der schnellen Badewannen-Reparatur bis zur Komplettsanierung: Wir verwandeln Ihr Badezimmer in eine Wohlfühl-Oase mit festen Preisen und deutschlandweitem Service.",
   metadataBase: new URL(PRODUCTION_URL),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     images: {
       url: "/images/traum-bad/og-image.png",

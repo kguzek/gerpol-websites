@@ -1,4 +1,4 @@
-import type { StaticImageData } from "next/image";
+import type { ImageProps, StaticImageData } from "next/image";
 import Image from "next/image";
 
 import {
@@ -12,20 +12,17 @@ import {
 export function ClickableImage({
   src,
   alt,
-  width,
-  height = 300,
   className = "cursor-pointer rounded-md",
+  ...props
 }: {
   src: StaticImageData;
   alt: string;
-  width?: number;
-  height?: number;
   className?: string;
-}) {
+} & ImageProps) {
   return (
     <Dialog>
       <DialogTrigger>
-        <Image src={src} alt={alt} width={width} height={height} className={className} />
+        <Image src={src} alt={alt} className={className} {...props} />
       </DialogTrigger>
       <DialogContent className="md:max-w-fit">
         <DialogTitle>{alt}</DialogTitle>

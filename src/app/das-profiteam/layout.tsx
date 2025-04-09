@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description:
     "Wenn Sie einen guten Fachmann für Fliesen, Bad Komplettsanierung, Renovierung oder Küchenplanung in Berlin suchen, dann sind Sie bei uns genau richtig.",
   metadataBase: new URL(PRODUCTION_URL),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     images: {
       url: "/images/das-profiteam/og-image.png",
