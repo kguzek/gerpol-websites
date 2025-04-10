@@ -10,7 +10,7 @@ export function Footer({ contactFromEmail }: { contactFromEmail: string }) {
     <div id="contact" className="mt-12 px-4 sm:px-10 md:px-28">
       <Heading>Kontakt aufnehmen</Heading>
       <div className="mt-6 mb-10 grid grid-cols-1 gap-4 md:grid-cols-2">
-        <address className="grid grid-cols-1 justify-around gap-2 text-sm not-italic sm:grid-cols-2 md:flex md:flex-col">
+        <address className="my-4 grid grid-cols-1 gap-2 space-y-6 text-sm not-italic sm:grid-cols-2 md:flex md:flex-col">
           <div className="flex items-center gap-1 sm:col-span-2 md:col-span-1">
             <House className="text-accent" /> Gerpol Consulting UG (haftungsbeschränkt)
           </div>

@@ -15,6 +15,7 @@ export const contactFormSchema = z.object({
       message: "Bitte geben Sie eine gültige Telefonnummer ein.",
     }),
   message: z.string().nonempty({ message: "Bitte geben Sie eine Nachricht ein." }),
+  attachments: z.array(z.instanceof(File)),
   token: z.string().nonempty({ message: "Bitte mit Cloudflare verifizieren." }),
 });
 

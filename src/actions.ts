@@ -1,9 +1,9 @@
 "use server";
 
+import type { Attachment } from "nodemailer/lib/mailer";
 import { validateTurnstileToken } from "next-turnstile";
 import nodemailer from "nodemailer";
 
-// import { Resend } from "resend";
 import type { ContactFormSchema } from "./lib/schemas";
 import {
   EMAIL_RECIPIENT,
@@ -12,8 +12,6 @@ import {
 } from "./lib/constants";
 
 // Using the resend SDK causes the docker build to fail with a webpack error
-// const resend = new Resend(process.env.RESEND_API_KEY);
-
 const transporter = nodemailer.createTransport({
   host: "smtp.resend.com",
   secure: true,
@@ -24,8 +22,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const fileToBuffer = async (file: File) => Buffer.from(await file.arrayBuffer());
+
 export async function sendContactEmail(
-  { name, email, message, company, phone, token }: ContactFormSchema,
+  { name, email, message, company, phone, token, attachments }: ContactFormSchema,
   from: string,
 ) {
   if (!TURNSTILE_SANDBOX_MODE_ENABLED) {
@@ -44,12 +44,21 @@ export async function sendContactEmail(
     }
   }
 
+  const emailAttachments: Attachment[] = await Promise.all(
+    attachments.map(async (file) => ({
+      filename: file.name,
+      type: file.type,
+      content: await fileToBuffer(file),
+    })),
+  );
+
   const emailResult = await transporter.sendMail({
     from,
     to: [EMAIL_RECIPIENT],
     subject: `Neue Kontaktanfrage von ${name}${company ? ` (${company})` : ""}`,
     text: `${message}\n\n-----------\nKundenname: ${name}\nKundenfirma: ${company || "<keine>"}\nKontakt-E-Mail: ${email}\nKontakttelefon: ${phone}`,
     replyTo: email,
+    attachments: emailAttachments,
   });
   // if (emailResult.error) {
   //   throw emailResult.error;

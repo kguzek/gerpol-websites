@@ -21,21 +21,39 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { Switch } from "../ui/switch";
 import { Textarea } from "../ui/textarea";
+import { FileInput, UploadShad } from "../uploadshad";
+
+const DUMMY_INITIAL_VALUES: ContactFormSchema = {
+  company: "",
+  name: "Test",
+  phone: "+491234567890",
+  email: "hans@mail.de",
+  message: "Test Nachricht",
+  attachments: [],
+  token: "",
+};
 
 export function ContactForm({ fromEmail }: { fromEmail: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showAttachmentsSection, setShowAttachmentsSection] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      company: "",
-      name: "",
-      phone: "",
-      email: "",
-      message: "",
-      token: "",
-    },
+    defaultValues:
+      process.env.NODE_ENV === "development"
+        ? DUMMY_INITIAL_VALUES
+        : {
+            company: "",
+            name: "",
+            phone: "",
+            email: "",
+            message: "",
+            attachments: [],
+            token: "",
+          },
   });
 
   async function onSubmit(values: ContactFormSchema) {
@@ -48,7 +66,7 @@ export function ContactForm({ fromEmail }: { fromEmail: string }) {
     } finally {
       setIsSubmitting(false);
     }
-    form.reset();
+    form.reset({ token: values.token, attachments: values.attachments });
   }
 
   return (
@@ -128,6 +146,34 @@ export function ContactForm({ fromEmail }: { fromEmail: string }) {
             </FormItem>
           )}
         />
+        <div className="mt-2 mb-4">
+          <Label className="cursor-pointer">
+            Ich möchte Dateien anhängen
+            <Switch
+              checked={showAttachmentsSection}
+              onCheckedChange={setShowAttachmentsSection}
+            />
+          </Label>
+        </div>
+        {showAttachmentsSection && (
+          <FormField
+            control={form.control}
+            name="attachments"
+            render={() => (
+              <FormItem className="mb-6 flex w-full flex-col items-start sm:col-span-2">
+                <FormControl className="w-full">
+                  <UploadShad
+                    handleChange={(files) => {
+                      form.setValue("attachments", files); // store files to Form State
+                    }}
+                  >
+                    <FileInput maxfiles={5} maxsize={5 * 1024 * 1024} />
+                  </UploadShad>
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        )}
         <FormField
           control={form.control}
           name="token"

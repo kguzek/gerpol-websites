@@ -8,3 +8,8 @@ export const TURNSTILE_SANDBOX_MODE_ENABLED = process.env.NODE_ENV === "developm
 
 export const DAS_PROFITEAM = "das-profiteam-berlin.de";
 export const TRAUM_BAD = "traum-bad-berlin.de";
+
+export const WEBSITE_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : `https://${DAS_PROFITEAM}`;
