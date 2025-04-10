@@ -85,26 +85,26 @@ export const handleRejectedFiles = (rejectedFiles: FileRejection[], maxSize: num
     errors.forEach((error) => {
       switch (error.code) {
         case "file-invalid-type":
-          toast.error(`File ${file.name} was rejected.`, {
-            description: `${file.type} are not allowed.`,
+          toast.error(`Datei ${file.name} wurde abgelehnt.`, {
+            description: `${file.type.toUpperCase()}-Dateien sind nicht zulässig.`,
             duration: 10000,
           });
           break;
         case "file-too-large":
-          toast.error(`File ${file.name} was rejected.`, {
-            description: `Files bigger than ${formatBytes(maxSize)} are not allowed.`,
+          toast.error(`Datei ${file.name} wurde abgelehnt.`, {
+            description: `Die Dateien dürfen maximal ${formatBytes(maxSize)} groß sein.`,
             duration: 10000,
           });
           break;
         case "file-too-small":
-          toast.error(`File ${file.name} was rejected.`, {
-            description: `Files smaller than ${formatBytes(maxSize)} are not allowed.`,
+          toast.error(`Datei ${file.name} wurde abgelehnt.`, {
+            description: `Die Dateien müssen mindestens ${formatBytes(maxSize)} groß sein.`,
             duration: 10000,
           });
           break;
         case "too-many-files":
-          toast.error(`Your files was rejected.`, {
-            description: `Too many files were uploaded.`,
+          toast.error(`Die Dateien wurden abgelehnt.`, {
+            description: `Es wurden zu viele Dateien hochgeladen.`,
             duration: 10000,
           });
           break;

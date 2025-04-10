@@ -102,6 +102,9 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>((props, ref
     (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
       // Display toasts for rejected files
       handleRejectedFiles(rejectedFiles, maxsize ?? 0);
+      if (acceptedFiles.length === 0) {
+        return;
+      }
 
       const newFiles = acceptedFiles.map((file) =>
         Object.assign(file, {
@@ -112,8 +115,8 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>((props, ref
 
       // Validate the Total Number of Files inputed & the current number of uploaded files is less than maxfiles allowed (Assumes maxfiles is defined)
       if (uploadedFiles.length + updatedFiles.length > maxfiles) {
-        toast.error("Oops, you can't do that.", {
-          description: `Cannot upload more than ${maxfiles} files`,
+        toast.error("Ups, das geht nicht.", {
+          description: `Sie können nicht mehr als ${maxfiles} Dateien hochladen.`,
           duration: 10000,
         });
         return;
@@ -123,9 +126,13 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>((props, ref
 
       console.log("UploadShad Tracking: InputView - Validated File Input(s)");
       const target =
-        updatedFiles.length <= 1 ? "Datei" : `${updatedFiles.length} Dateien`;
-      const uploading = updatedFiles.length > 1 ? "werden" : "wird";
-      const error = updatedFiles.length > 1 ? "von" : "der";
+        acceptedFiles.length === 0
+          ? "Datei"
+          : acceptedFiles.length === 1
+            ? "1 Datei"
+            : `${acceptedFiles.length} Dateien`;
+      const uploading = acceptedFiles.length > 1 ? "werden" : "wird";
+      const error = acceptedFiles.length > 1 ? "von" : "der";
       toast.promise(handleInput(updatedFiles), {
         loading: `${target} ${uploading} hochgeladen...`,
         success: () => {
