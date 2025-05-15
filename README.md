@@ -1,6 +1,13 @@
 # Gerpol Websites
 
+## Introduction
+
 This project is a modern web application built for a home renovation services company. It showcases a contractor directory and a user-friendly interface designed with Lucide icons. The Next.js application contains two websites with shared components and files, differentiated by request URL.
+
+### Links
+
+ - https://das-profiteam-berlin.de
+ - https://traum-bad-berlin.de
 
 ## Technologies Used
 
