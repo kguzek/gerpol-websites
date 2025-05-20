@@ -6,9 +6,8 @@ import { useEffect } from "react";
 const getWindow = () => window as unknown as Window & { dataLayer: unknown[] };
 
 export function Tracking() {
-  const win = getWindow();
-
   useEffect(() => {
+    const win = getWindow();
     win.dataLayer = win.dataLayer || [];
     win.dataLayer.push("js", new Date());
     win.dataLayer.push("config", "AW-17097839594");
