@@ -11,6 +11,7 @@ import { sendContactEmail } from "@/actions";
 import { TURNSTILE_SANDBOX_MODE_ENABLED, TURNSTILE_SITE_KEY } from "@/lib/constants";
 import { contactFormSchema } from "@/lib/schemas";
 
+import { registerConversion } from "../tracking";
 import { Button } from "../ui/button";
 import {
   Form,
@@ -67,6 +68,7 @@ export function ContactForm({ fromEmail }: { fromEmail: string }) {
       setIsSubmitting(false);
     }
     form.reset({ token: values.token, attachments: values.attachments });
+    registerConversion();
   }
 
   return (

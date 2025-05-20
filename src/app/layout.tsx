@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
+
+import { Tracking } from "@/components/tracking";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,11 +55,7 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
-        <Script
-          data-collect-dnt="true"
-          async
-          src="https://scripts.simpleanalyticscdn.com/latest.js"
-        ></Script>
+        <Tracking />
       </body>
     </html>
   );
