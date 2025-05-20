@@ -1,16 +1,24 @@
 "use client";
 
+import type { ComponentProps } from "react";
+import dynamic from "next/dynamic";
 import Script from "next/script";
 import { useEffect } from "react";
 
 const getWindow = () => window as unknown as Window & { dataLayer: unknown[] };
+const gtag = (...args: unknown[]) => getWindow().dataLayer.push(args);
 
-export function Tracking() {
+function Tracking() {
   useEffect(() => {
-    const win = getWindow();
-    win.dataLayer = win.dataLayer || [];
-    win.dataLayer.push("js", new Date());
-    win.dataLayer.push("config", "AW-17097839594");
+    getWindow().dataLayer ??= [];
+    gtag("js", new Date());
+    gtag("config", "AW-17097839594");
+    gtag("consent", "default", {
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      analytics_storage: "denied",
+    });
   }, []);
 
   return (
@@ -30,9 +38,53 @@ export function Tracking() {
 
 /** Registers a conversion in the Google ads campain */
 export function registerConversion() {
-  getWindow().dataLayer.push("event", "conversion", {
+  gtag("event", "conversion", {
     send_to: "AW-17097839594/iW1VCJO_ycoaEOqn8dg_",
     value: 1.0,
     currency: "PLN",
   });
+}
+
+const grantConsent = (key: string) => gtag("consent", "update", { [key]: "granted" });
+
+function acceptAnalyticsCookies() {
+  grantConsent("analytics_storage");
+}
+
+function acceptAdvertisingCookies() {
+  grantConsent("ad_storage");
+  grantConsent("ad_user_data");
+  grantConsent("ad_personalization");
+}
+
+const CookieManager = dynamic(
+  () => import("react-cookie-manager").then((mod) => mod.CookieManager),
+  { ssr: false, loading: () => null },
+);
+
+export function AnalyticsProvider({
+  children,
+  ...props
+}: ComponentProps<typeof CookieManager>) {
+  return (
+    <CookieManager
+      onAccept={() => {
+        acceptAnalyticsCookies();
+        acceptAdvertisingCookies();
+      }}
+      onManage={(preferences) => {
+        if (preferences == null) return;
+        if (preferences.Analytics) {
+          acceptAnalyticsCookies();
+        }
+        if (preferences.Advertising) {
+          acceptAdvertisingCookies();
+        }
+      }}
+      {...props}
+    >
+      {children}
+      <Tracking />
+    </CookieManager>
+  );
 }
