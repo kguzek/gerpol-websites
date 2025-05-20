@@ -4,16 +4,14 @@ import Script from "next/script";
 
 import { Footer } from "@/components/footer";
 import { Banner } from "@/components/navigation/banner";
-import { DAS_PROFITEAM, TRAUM_BAD } from "@/lib/constants";
-
-const PRODUCTION_URL = `https://${TRAUM_BAD}`;
+import { DAS_PROFITEAM, DAS_PROFITEAM_URL, TRAUM_BAD_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title:
     "Traum Bad – Professionelle Badsanierung & Renovierung in Berlin | Ihr Experte für Traumbäder",
   description:
     "Von der schnellen Badewannen-Reparatur bis zur Komplettsanierung: Wir verwandeln Ihr Badezimmer in eine Wohlfühl-Oase mit festen Preisen und deutschlandweitem Service.",
-  metadataBase: new URL(PRODUCTION_URL),
+  metadataBase: new URL(TRAUM_BAD_URL),
   alternates: {
     canonical: "/",
   },
@@ -49,7 +47,12 @@ export default function TraumBadLayout({ children }: { children: ReactNode }) {
     <>
       <Banner title="Traum Bad" />
       <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
-      <Footer contactFromEmail={`Traum Bad <traum-bad@${DAS_PROFITEAM}>`} />
+      <Footer
+        contactFromEmail={`Traum Bad <traum-bad@${DAS_PROFITEAM}>`}
+        ctaText="Suchen Sie nach Möbelmontagediensten?"
+        ctaLabel="Besuchen Das Profiteam"
+        ctaUrl={DAS_PROFITEAM_URL}
+      />
       <Script
         defer
         src="https://analytics.guzek.uk/script.js"
