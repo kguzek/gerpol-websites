@@ -44,6 +44,6 @@ export const config = {
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
      * - [slug].png/pdf (all .png or .pdf files)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.+\.(png|pdf)$).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.+\.(?:png|pdf)$).*)",
   ],
 };
