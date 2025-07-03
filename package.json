@@ -58,7 +58,7 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.12.4",
   "pnpm": {
     "onlyBuiltDependencies": [
       "react-cookie-manager",
