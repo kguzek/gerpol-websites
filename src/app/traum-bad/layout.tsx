@@ -50,7 +50,7 @@ export default function TraumBadLayout({ children }: { children: ReactNode }) {
       <Footer
         contactFromEmail={`Traum Bad <traum-bad@${DAS_PROFITEAM}>`}
         ctaText="Suchen Sie nach Möbelmontagediensten?"
-        ctaLabel="Besuchen Das Profiteam"
+        ctaLabel={`Besuchen Sie ${DAS_PROFITEAM_URL}`}
         ctaUrl={DAS_PROFITEAM_URL}
       />
       <Script

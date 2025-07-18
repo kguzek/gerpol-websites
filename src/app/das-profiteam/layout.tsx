@@ -48,7 +48,7 @@ export default function DasProfiteamLayout({ children }: { children: ReactNode }
       <Footer
         contactFromEmail={`Das Profiteam <das-profiteam@${DAS_PROFITEAM}>`}
         ctaText="Suchen Sie einen Spezialisten für die Badrenovierung?"
-        ctaLabel="Besuchen Traum Bad"
+        ctaLabel={`Besuchen Sie ${TRAUM_BAD_URL}`}
         ctaUrl={TRAUM_BAD_URL}
       />
       <Script
