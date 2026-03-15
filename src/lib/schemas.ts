@@ -11,7 +11,7 @@ export const contactFormSchema = z.object({
     .nonempty({ message: "Bitte geben Sie Ihre Telefonnummer ein." })
     .min(5, { message: "Bitte geben Sie eine gültige Telefonnummer ein." })
     .max(20, { message: "Bitte geben Sie eine gültige Telefonnummer ein." })
-    .refine((val) => /^\+?(?:\d+[\s-]?)+\d+$/.test(val), {
+    .refine((val) => /^\+?\d+(?:[\s-]?\d)*$/.test(val), {
       message: "Bitte geben Sie eine gültige Telefonnummer ein.",
     }),
   message: z.string().nonempty({ message: "Bitte geben Sie eine Nachricht ein." }),
