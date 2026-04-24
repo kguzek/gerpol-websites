@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, User } from "lucide-react";
 
 import { EMAIL_ADDRESS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,10 @@ export function Contact({
           <span>Germaniapromenade 21,</span>
           <span>12347 Berlin</span>
         </div>
+      </div>
+      <div className="flex items-start gap-1">
+        <User className="text-accent mt-0.5 shrink-0" />
+        <span>Paweł Machulec</span>
       </div>
       <ContactPhone animate={animate} />
       {/* <div

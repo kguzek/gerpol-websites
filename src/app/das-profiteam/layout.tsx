@@ -50,6 +50,7 @@ export default function DasProfiteamLayout({ children }: { children: ReactNode }
         ctaText="Suchen Sie einen Spezialisten für die Badrenovierung?"
         ctaLabel={`Besuchen Sie ${TRAUM_BAD_URL}`}
         ctaUrl={TRAUM_BAD_URL}
+        showBwbBadge
       />
       <Script
         defer
