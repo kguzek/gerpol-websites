@@ -5,7 +5,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 
-import "react-cookie-manager/style.css";
 import "./globals.css";
 
 import { AnalyticsProvider } from "@/components/tracking";
