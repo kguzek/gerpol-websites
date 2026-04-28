@@ -11,7 +11,7 @@ export function getPathPrefix(hostname: string) {
   return null;
 }
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const host = request.headers.get("host") || "MISSING_HOST_HEADER";
 
   function redirect(path: string, type: "redirect" | "rewrite" = "redirect") {
