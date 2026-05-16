@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 
 import { Footer } from "@/components/footer";
+import { Hero } from "@/components/hero";
 import { Banner } from "@/components/navigation/banner";
 import { DAS_PROFITEAM, DAS_PROFITEAM_URL, TRAUM_BAD_URL } from "@/lib/constants";
 
@@ -44,6 +45,7 @@ export default function DasProfiteamLayout({ children }: { children: ReactNode }
   return (
     <>
       <Banner title="Das Profiteam" />
+      <Hero />
       <main className="grow px-4 sm:px-10 md:px-28">{children}</main>
       <Footer
         contactFromEmail={`Das Profiteam <das-profiteam@${DAS_PROFITEAM}>`}

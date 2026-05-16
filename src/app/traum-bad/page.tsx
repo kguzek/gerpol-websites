@@ -76,7 +76,7 @@ function ComparisonSide({
 export default function TraumBad() {
   return (
     <div>
-      <div className="my-10 flex flex-col items-center justify-center gap-8 xl:flex-row xl:items-stretch">
+      <div className="my-10 flex flex-col items-center justify-between gap-8 xl:flex-row xl:items-stretch">
         <ClickableImage src={imageBathroom} alt="Duschkabine" height={400} priority />
         <div className="relative max-w-lg">
           <Heading>Seniorengerechte Badezimmer</Heading>

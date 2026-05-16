@@ -15,10 +15,6 @@ import { Heading } from "../heading";
 
 const SERVICES: Service[] = [
   {
-    label: "Auf- & Abbau von IKEA Küchen & Arbeitsplatten",
-    image: imageIkeaKitchenConstruction,
-  },
-  {
     label: "IKEA Möbelaufbau und Möbelabbau (Fertigteilmöbel)",
     image: imageIkeaFurnitureAssembly,
   },
@@ -29,10 +25,6 @@ const SERVICES: Service[] = [
   {
     label: "Badfliesen, Fliesenspiegel und Wände fliesen",
     image: imageBathroomTiling,
-  },
-  {
-    label: "Fenster und Türen einbauen und austauschen",
-    image: imageWindowInstallation,
   },
   {
     label: "Armaturen anschließen und tauschen",
