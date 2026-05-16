@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { House } from "lucide-react";
 
@@ -12,13 +11,11 @@ export function Footer({
   ctaText,
   ctaLabel,
   ctaUrl,
-  showBwbBadge = false,
 }: {
   contactFromEmail: string;
   ctaLabel: string;
   ctaText: string;
   ctaUrl: string;
-  showBwbBadge?: boolean;
 }) {
   return (
     <div id="contact" className="mt-12 px-4 sm:px-10 md:px-28">
@@ -35,20 +32,6 @@ export function Footer({
             <House className="text-accent" /> Gerpol Consulting UG (haftungsbeschränkt)
           </div>
           <Contact />
-          {showBwbBadge && (
-            <div className="flex flex-col gap-2 pt-2">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/images/bwb-logo.svg"
-                  alt="Berliner Wasserbetriebe"
-                  width={120}
-                  height={40}
-                  className="dark:invert"
-                />
-              </div>
-              <span className="text-muted-foreground text-xs">IU-Nr. 00020131</span>
-            </div>
-          )}
         </address>
         <ContactForm fromEmail={contactFromEmail} />
       </div>
