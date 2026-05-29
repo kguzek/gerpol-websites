@@ -1,12 +1,12 @@
 import imageBathroomTiling from "@public/images/das-profiteam/services/bathroom_tiling.jpg";
+import bathtubRenovation from "@public/images/das-profiteam/services/bathtub_renovation.jpg";
 import imageFaucetInstallation from "@public/images/das-profiteam/services/faucet_installation.jpg";
-import imageIkeaFurnitureAssembly from "@public/images/das-profiteam/services/ikea_furniture_assembly.jpg";
-import imageIkeaKitchenConstruction from "@public/images/das-profiteam/services/ikea_kitchen_construction.jpg";
-import imageIkeaKitchenPlanning from "@public/images/das-profiteam/services/ikea_kitchen_planning.jpg";
+import imageGardenPipeInstallation from "@public/images/das-profiteam/services/garden_pipe_installation.jpg";
+import imageHeatingSystemInstallation from "@public/images/das-profiteam/services/heating_system_installation.jpg";
 import imageShowerCabinInstallation from "@public/images/das-profiteam/services/shower_cabin_installation.jpg";
 import imageSinkInstallation from "@public/images/das-profiteam/services/sink_installation.jpg";
 import imageToiletInstallation from "@public/images/das-profiteam/services/toilet_installation.jpg";
-import imageWindowInstallation from "@public/images/das-profiteam/services/window_installation.jpg";
+import imageWaterPipeInstallation from "@public/images/das-profiteam/services/water_pipe_installation.jpg";
 
 import type { Service } from "@/lib/types";
 import { ServiceCard } from "@/components/services/service-card";
@@ -14,34 +14,19 @@ import { ServiceCard } from "@/components/services/service-card";
 import { Heading } from "../heading";
 
 const SERVICES: Service[] = [
+  { label: "Komplettbad-Umbau und Sanitärarbeiten", image: bathtubRenovation },
   {
-    label: "IKEA Möbelaufbau und Möbelabbau (Fertigteilmöbel)",
-    image: imageIkeaFurnitureAssembly,
+    label:
+      "Installation von Wasserleitungen, Anschlüssen und Sanitärsystemen für Neubauten, Renovierungen und Modernisierungen",
+    image: imageWaterPipeInstallation,
   },
-  {
-    label: "IKEA Küchenplanung",
-    image: imageIkeaKitchenPlanning,
-  },
-  {
-    label: "Badfliesen, Fliesenspiegel und Wände fliesen",
-    image: imageBathroomTiling,
-  },
-  {
-    label: "Armaturen anschließen und tauschen",
-    image: imageFaucetInstallation,
-  },
-  {
-    label: "Waschbeckenmontage",
-    image: imageSinkInstallation,
-  },
-  {
-    label: "WC-Montage",
-    image: imageToiletInstallation,
-  },
-  {
-    label: "Badewannen- und Duschkabinenmontage",
-    image: imageShowerCabinInstallation,
-  },
+  { label: "Montage von Gartenwasserzählern", image: imageGardenPipeInstallation },
+  { label: "Installation von Heizungsanlagen", image: imageHeatingSystemInstallation },
+  { label: "Badfliesen, Fliesenspiegel und Wände fliesen", image: imageBathroomTiling },
+  { label: "Armaturen anschließen und tauschen", image: imageFaucetInstallation },
+  { label: "Waschbeckenmontage", image: imageSinkInstallation },
+  { label: "WC-Montage", image: imageToiletInstallation },
+  { label: "Badewannen- und Duschkabinenmontage", image: imageShowerCabinInstallation },
 ];
 
 export function Services() {
