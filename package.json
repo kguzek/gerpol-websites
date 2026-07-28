@@ -28,7 +28,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.479.0",
-    "next": "^16.2.6",
+    "next": "^16.2.11",
     "next-turnstile": "^1.0.7",
     "nodemailer": "^9.0.1",
     "postcss": "^8.5.12",
