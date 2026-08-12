@@ -31,7 +31,7 @@
     "next": "^16.2.11",
     "next-turnstile": "^1.0.7",
     "nodemailer": "^9.0.1",
-    "postcss": "^8.5.23",
+    "postcss": "^8.5.26",
     "react": "^19.2.5",
     "react-cookie-manager": "^3.8.2",
     "react-dom": "^19.2.5",
