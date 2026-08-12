@@ -1,0 +1,4 @@
+allowBuilds:
+  react-cookie-manager: false
+  sharp: false
+  unrs-resolver: false
