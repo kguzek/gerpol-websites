@@ -13,6 +13,8 @@ import { EmptyCard } from "@/components/uploadshad/empty-card";
 
 import { useFilesContext } from "./hooks";
 
+/* eslint-disable react-hooks/refs */
+
 type FilesPreviewProps = PropsWithChildren & {
   customLoader?: (props: ImageLoaderProps) => string;
 };
