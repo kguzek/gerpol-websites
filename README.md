@@ -6,8 +6,8 @@ This project is a modern web application built for a home renovation services co
 
 ### Links
 
- - https://das-profiteam-berlin.de
- - https://traum-bad-berlin.de
+- https://das-profiteam-berlin.de
+- https://traum-bad-berlin.de
 
 ## Technologies Used
 

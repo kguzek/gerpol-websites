@@ -3,7 +3,11 @@
  * @type {import("prettier").Config}
  */
 const config = {
-  plugins: ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  plugins: [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-packagejson",
+  ],
   importOrder: [
     "<TYPES>",
     "^(react|next)(/.+)?$",
