@@ -22,3 +22,7 @@ updates:
           - "next"
           - "@next/*"
           - "eslint-config-next"
+
+      aws-sdk:
+        patterns:
+          - "@aws-sdk/*"
