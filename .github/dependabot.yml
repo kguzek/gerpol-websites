@@ -26,3 +26,9 @@ updates:
       aws-sdk:
         patterns:
           - "@aws-sdk/*"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 15
