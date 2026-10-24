@@ -1,0 +1,9 @@
+services:
+  gerpol-websites:
+    build:
+      context: .
+      dockerfile: ./Containerfile
+    restart: unless-stopped
+    container_name: nextjs
+    ports:
+      - ${GERPOL_PORT:-3000}:3000
