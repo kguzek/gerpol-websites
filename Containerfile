@@ -6,6 +6,8 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
   pnpm install --store-dir=/pnpm/store --frozen-lockfile
 COPY . /app
+ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY
+ENV NEXT_PUBLIC_TURNSTILE_SITE_KEY=${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
 RUN pnpm run build
 
 FROM docker.io/node:24-slim AS runner
