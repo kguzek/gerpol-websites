@@ -297,11 +297,11 @@ importers:
         specifier: ^0.8.1
         version: 0.8.1(@ianvs/prettier-plugin-sort-imports@4.7.1(prettier@3.9.10)(supports-color@7.2.0))(prettier@3.9.10)
       tailwindcss:
-        specifier: ^4.3.4
-        version: 4.3.4
+        specifier: ^4.3.5
+        version: 4.3.5
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@4.3.4)
+        version: 1.0.7(tailwindcss@4.3.5)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -5789,9 +5789,9 @@ snapshots:
 
   tailwind-merge@3.7.0: {}
 
-  tailwindcss-animate@1.0.7(tailwindcss@4.3.4):
+  tailwindcss-animate@1.0.7(tailwindcss@4.3.5):
     dependencies:
-      tailwindcss: 4.3.4
+      tailwindcss: 4.3.5
 
   tailwindcss@4.3.4: {}
 
