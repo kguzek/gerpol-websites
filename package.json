@@ -33,7 +33,7 @@
     "next": "^16.4.6",
     "next-turnstile": "^1.0.7",
     "nodemailer": "^10.6.0",
-    "postcss": "^8.5.32",
+    "postcss": "^8.5.33",
     "react": "^19.3.1",
     "react-cookie-manager": "^3.8.2",
     "react-dom": "^19.3.1",
